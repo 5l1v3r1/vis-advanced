@@ -283,7 +283,7 @@ void *udp_server() {
 					packet = ((struct vis_packet *)receive_buff);
 
 					/* drop packet if it has not minumum packet size or not the correct version */
-					if ( ( buff_len >= sizeof(struct vis_packet) + sizeof(struct vis_data) ) && ( packet->version == VIS_COMPAT_VERSION ) ) {
+					if ( ( buff_len >= (int)(sizeof(struct vis_packet) + sizeof(struct vis_data)) ) && ( packet->version == VIS_COMPAT_VERSION ) ) {
 
 						if ( ((struct vis_packet *)receive_buff)->sender_mac != 0 ) {
 

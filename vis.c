@@ -466,7 +466,7 @@ void *tcp_server( void *arg ) {
 			current->counter = current->counter == -1 ? 1 : current->counter + 1;
 			pthread_mutex_unlock( &current->mutex );
 			ret = write( thread_data->socket, current->buffer, strlen( current->buffer ) );
-			if( ret != strlen( current->buffer ) )
+			if( ret != (int)strlen( current->buffer ) )
 			{
 
 				pthread_mutex_lock( &current->mutex );
