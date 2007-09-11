@@ -296,11 +296,11 @@ void *udp_server() {
 												packet->seq_range );
 
 								if ( pthread_mutex_unlock( &hash_mutex ) < 0 )
-									printf( "Error - could not unlock mutex (udp server): %s \n", strerror( errno ) );
+									debug_output( "Error - could not unlock mutex (udp server): %s \n", strerror( errno ) );
 
 							} else {
 
-								printf( "Warning - dropping UDP packet: hash mutext is locked (%s)\n", strerror( EBUSY ) );
+								debug_output( "Warning - dropping UDP packet: hash mutext is locked (%s)\n", strerror( EBUSY ) );
 
 							}
 
