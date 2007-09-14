@@ -26,11 +26,11 @@ SRC_C= allocate.c hash.c list-batman.c vis.c udp_server.c
 SRC_H= allocate.h hash.h list-batman.h vis.h vis-types.h
 
 
-vis:		$(SRC_C) $(SRC_H) Makefile
+vis-adv:	$(SRC_C) $(SRC_H) Makefile
 		$(CC) $(CFLAGS) -o $@ $(SRC_C) $(SRC_H) $(LDFLAGS)
 
-vis-static:	$(SRC_C) $(SRC_H) Makefile
+vis-adv-static:	$(SRC_C) $(SRC_H) Makefile
 		$(CC) $(CFLAGS) -o $@ $(SRC_C) $(SRC_H) $(LDFLAGS_STATIC)
 
 clean:
-		rm -f vis *.o *~
+		rm -f vis-adv vis-adv-static *.o *~
